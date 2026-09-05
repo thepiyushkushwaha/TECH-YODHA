@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 font-sans antialiased selection:bg-brand-500 selection:text-white;
+  }
+}
+
+.high-contrast {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0) !important;
+  color: rgb(255 255 255) !important;
+}
+
+.high-contrast .bg-white {
+  background-color: #121826 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+.high-contrast .text-slate-600,
+.high-contrast .text-slate-500,
+.high-contrast .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+.large-text {
+  font-size: 1.15rem !important;
+}
+
+.large-text h1 { font-size: 2.5rem !important; }
+.large-text h2 { font-size: 2rem !important; }
+.large-text h3 { font-size: 1.5rem !important; }
+.large-text button { font-size: 1.2rem !important; padding-top: 1rem !important; padding-bottom: 1rem !important; }
+
+/* QR Scan animation line */
+@keyframes scanMove {
+  0% { top: 5%; }
+  100% { top: 90%; }
+}
+
+.animate-scan-line {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #36a9f7, #0c8de9, transparent);
+  box-shadow: 0 0 12px #36a9f7;
+  animation: scanMove 2s infinite ease-in-out alternate;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
