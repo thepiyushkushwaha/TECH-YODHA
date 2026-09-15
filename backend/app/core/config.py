@@ -39,7 +39,11 @@ class Settings(BaseSettings):
         "http://127.0.0.1:5173",
         "http://127.0.0.1:3000"
     ]
+    FRONTEND_URL: str = ""
 
     model_config = SettingsConfigDict(case_sensitive=True, env_file=".env")
 
 settings = Settings()
+
+if settings.FRONTEND_URL and settings.FRONTEND_URL not in settings.BACKEND_CORS_ORIGINS:
+    settings.BACKEND_CORS_ORIGINS.append(settings.FRONTEND_URL.rstrip("/"))
